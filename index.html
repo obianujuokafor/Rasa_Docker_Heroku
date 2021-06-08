@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="chatbox.css">
+  <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/e7dc4ed353.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+</head>
+
+<body>
+<div class="chat-container" id = "chat-container"></div>
+ <h1>Hello World</h1>
+ <button class="chat-button" id="chat-button"><i class="fas fa-comment-alt fa-lg"></i></button>
+  
+<script type="text/javascript">
+    var chatroom = new window.Chatroom({
+      host: "https://chatbot-marty.herokuapp.com",
+      title: "Chat with Marty",
+      container: document.querySelector(".chat-container"),
+      welcomeMessage: "Hi, I am Marty. How may I help you?",
+      speechRecognition: "en-US",
+      voiceLang: "en-US"
+    });
+    //chatroom.openChat();
+</script>  
+<script>
+     $('.chat-button').click(function() {
+          chatroom.ref.handleToggleChat();
+          $(this).find('i').toggleClass('fas fa-times fas fa-comment-alt');
+
+});
+   </script>
+</body>
+</html>
+
